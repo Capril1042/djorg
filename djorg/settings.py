@@ -80,13 +80,7 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default'= dj_database_url.config(sqlite:////Users/Capri/Documents/GitHub/djorg/db.sqlite3): {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASE_URL="sqlite:////db.sqlite3"
 
 
 # Password validation
