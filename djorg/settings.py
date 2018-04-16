@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS= ['*']
+ALLOWED_HOSTS= config('ALLOWED_HOSTS').split(',')
 
 
 # Application definition
@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd party apps
     'bootstrap4',
+    'rest_framework',
     # Our apps
     'bookmarks',
+    'notes',
     
 ]
 
@@ -75,6 +77,13 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 WSGI_APPLICATION = 'djorg.wsgi.application'
 
 
@@ -89,7 +98,9 @@ DATABASES = {
    }
 }
 
-DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL')),
+}
 
 
 # Password validation

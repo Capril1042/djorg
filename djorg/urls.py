@@ -1,5 +1,4 @@
 """djorg URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
 Examples:
@@ -14,11 +13,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import  include, path
+from django.urls import include, path
 from django.views.generic import TemplateView
+from rest_framework import routers
+from notes.api import NoteViewSet
+
+router = routers.DefaultRouter()
+router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='base.html')),
-    path('bookmarks/', include('bookmarks.urls')),
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('bookmarks/', include('bookmarks.urls')),
+    path('', TemplateView.as_view(template_name='base.html')),
 ]
