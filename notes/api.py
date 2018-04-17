@@ -1,6 +1,7 @@
 from rest_framework import serializers, viewsets
 from .models import Note
 
+
 # Serializers define the API representation
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
