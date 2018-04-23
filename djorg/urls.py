@@ -23,6 +23,7 @@ router = routers.DefaultRouter()
 router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
+    path('accounts/', include ('allauth.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('bookmarks/', include('bookmarks.urls')),
