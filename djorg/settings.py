@@ -52,12 +52,19 @@ INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
     'rest_framework',
+    'webpack_loader',
     # Our apps
     'bookmarks',
     'notes',
     'contacts',
     
 ]
+
+WEBPACK_LOADER = { 
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),        
+         } } 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,7 +83,7 @@ ROOT_URLCONF = 'djorg.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,12 +96,7 @@ TEMPLATES = [
     },
 ]
 
-WEBPACK_LOADER = {
-    'DEFAULT': {
-            'BUNDLE_DIR_NAME': '',
-            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
-        }
-}
+
 
 
 REST_FRAMEWORK = {

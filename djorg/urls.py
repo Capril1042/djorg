@@ -30,5 +30,5 @@ urlpatterns = [
     path('contacts/', include('contacts.urls')),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
     path('', TemplateView.as_view(template_name='djorg_base.html')),
-    path('notes/', TemplateView.as_view(template_name="react.html")),
+    path('notes/', TemplateView.as_view(template_name="main.html")),
 ]
