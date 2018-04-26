@@ -1,0 +1,27 @@
+{% extends "djorg_base.html" %}
+{% load bootstrap4%}
+{% load staticfiles %}
+
+{% block title %} Djorg -Contacts{% endblock %}
+
+{% block content %}
+<h3> Contacts</h3>
+{% if contacts %}
+<ol>
+{% for contact in contacts %}
+<div class="p-3 mb-2 bg-dark text-white">
+<li>  {{contact.name}}-{{contact.email}}
+{{contact.phone}}-{{contact.address}} {{contact.city}},{{contact.state}} {{contact.zip_code}}</li>
+</div>
+{% endfor %}
+</ol>
+{% else %}
+<div class="p-3 mb-2 bg-dark text-white">
+<h4> You haven't added any Contacts!</h4>
+<p> Add some contacts to keep in touch with people inmportant to your fitness journey! </p>
+</div>
+{% endif %}
+
+{% include "contacts/form.html" %}
+
+{% endblock %}

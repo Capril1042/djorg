@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "djorg_base.html" %}
 {% load bootstrap4%}
 {% load staticfiles %}
 
 {% block title %} Djorg -Bookmarks{% endblock %}
 
 {% block content %}
-<h1> Bookmarks</h1>
+<h3> Fit-Links</h3>
 {% if bookmarks %}
 <ol>
 {% for bookmark in bookmarks %}
@@ -13,7 +13,10 @@
 {% endfor %}
 </ol>
 {% else %}
-<p> No bookmarks available- you should add some!</p>
+<div class="p-3 mb-2 bg-dark text-white">
+<h4> You havent added any Fit-Links!</h4>
+<p> A Fit-Link is just like a bookmark- Add a Fit-Link</p>
+</div>
 {% endif %}
 
 {% include "bookmarks/form.html" %}

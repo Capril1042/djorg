@@ -15,6 +15,7 @@ djangorestframework = "*"
 graphene-django = "*"
 django-cors-headers = "*"
 django-allauth = "*"
+django-webpack-loader = "*"
 
 [requires]
 python_version = "3.5"

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     # Our apps
     'bookmarks',
     'notes',
+    'contacts',
     
 ]
 
@@ -87,6 +88,14 @@ TEMPLATES = [
         },
     },
 ]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+            'BUNDLE_DIR_NAME': '',
+            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        }
+}
+
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,

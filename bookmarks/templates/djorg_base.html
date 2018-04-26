@@ -1,0 +1,40 @@
+{% load bootstrap4 %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'static/bookmarks.css'%}"/>
+
+
+
+<!DOCTYPE html>
+<head>
+
+    <title>{% block title %}Djorg{% endblock %}</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Djorg-Fit</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/bookmarks/">Fit-Links</a>
+      <a class="nav-item nav-link" href="/contacts/"> Contacts</a>
+      
+    </div>
+  </div>
+</nav>
+</head>
+
+<body>
+    <div id="content" class="p-3 mb-2 bg-secondary text-light">
+        {% block content %}
+        <h2 class="text-center">Welcome to Djorg-Fit!</h2>
+        <p class="text-center">  A Tool that helps you stay organized on your fitness journey{% endblock %}
+        </span>
+    </div>
+</body>
+
+</html>

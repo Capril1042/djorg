@@ -27,6 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('bookmarks/', include('bookmarks.urls')),
+    path('contacts/', include('contacts.urls')),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
-    path('', TemplateView.as_view(template_name='base.html')),
+    path('', TemplateView.as_view(template_name='djorg_base.html')),
+    path('notes/', TemplateView.as_view(template_name="react.html")),
 ]
