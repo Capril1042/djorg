@@ -16,6 +16,7 @@ graphene-django = "*"
 django-cors-headers = "*"
 django-allauth = "*"
 django-webpack-loader = "*"
+social-auth-app-django = "*"
 
 [requires]
 python_version = "3.5"
