@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/', include ('allauth.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api2/', include('posts.urls'))
     path('bookmarks/', include('bookmarks.urls')),
     path('contacts/', include('contacts.urls')),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
